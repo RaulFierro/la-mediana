@@ -1,0 +1,625 @@
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0eade; 
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Georgia', serif; 
+    color: #1a4314; 
+}
+
+header {
+    background-color: #1a4314; 
+    color: white;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 6px solid #6e0e21; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.logo {
+    height: 120px; /* Aumenta o disminuye este número en píxeles para ajustarlo milimétricamente a la banda */
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d1b8bd; 
+}
+
+main {
+    padding: 3rem 2rem;
+    max-width: 95%; 
+    margin: 0 auto;
+    min-height: 60vh;
+}
+
+#inicio, #contacto {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    background: #ffffff;
+    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-left: 6px solid #6e0e21; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+}
+
+/* Nuevo layout de 3 columnas */
+.contenedor-tres-columnas {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Columna izquierda, centro (doble de ancha), derecha */
+    gap: 2.5rem; 
+    margin-bottom: 2.5rem;
+}
+
+.columna-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.columna-central {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-interna {
+    margin-bottom: 0; 
+    height: 100%;
+    padding: 1.5rem; /* Padding algo menor para que quepa bien el contenido lateral */
+}
+
+.seccion-interna h2 {
+    margin-top: 0;
+}
+
+#nosotros h3 {
+    color: #6e0e21;
+    border-bottom: 1px solid #e0d8d5;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+.tarjetas-junta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.miembro {
+    background-color: #fcfbf9;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid #1a4314;
+    flex: 1;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.miembro h4 {
+    margin: 0 0 0.5rem 0;
+    color: #1a4314;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+.miembro p {
+    margin: 0;
+    font-style: italic;
+    color: #666;
+}
+
+.img-fluida {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 1rem;
+    display: block;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.img-galeria {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.img-galeria:hover {
+    transform: scale(1.05);
+}
+
+.contacto-reducido {
+    padding: 1.5rem 2.5rem; 
+}
+
+.contacto-reducido h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.redes-iconos {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.icono-enlace {
+    transition: transform 0.2s, filter 0.3s;
+    display: inline-flex;
+}
+
+.icono-enlace:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2); 
+}
+
+.icono-contenedor {
+    position: relative;
+    display: inline-flex;
+}
+
+.tooltip-copiar,
+.tooltip-tel {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222; 
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.tooltip-copiar::after,
+.tooltip-tel::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #222 transparent transparent transparent;
+}
+
+.icono-contenedor:hover .tooltip-copiar,
+.tooltip-copiar:hover {
+    opacity: 1;
+    visibility: visible;
+    user-select: all; 
+}
+
+.tooltip-tel.mostrar-fijo {
+    opacity: 1;
+    visibility: visible;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1a4314; 
+    color: white;
+    border-top: 6px solid #6e0e21;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+    .contenedor-tres-columnas {
+        grid-template-columns: 1fr; /* Pasa a ser de una sola columna en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Botones de navegación interna */
+.boton-enlace, .boton-volver {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #1a4314;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.boton-enlace:hover, .boton-volver:hover {
+    background-color: #6e0e21;
+    color: white;
+}
+
+/* Estilos para la lista de PDFs en publicaciones.html */
+.lista-documentos {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.lista-documentos li {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: #fcfbf9;
+    border-left: 4px solid #1a4314;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.lista-documentos a {
+    color: #1a4314;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.lista-documentos a:hover {
+    color: #6e0e21;
+    text-decoration: underline;
+}
+
+/* Estilos para los vídeos */
+.video-fluido {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 1rem;
+    background-color: #000;
+}
+
+/* Visor de imágenes (Modal) */
+.modal-visor {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.85); 
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: #d1b8bd;
+}
+
+.img-galeria {
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clicable */
+}
+
+/* Botones de navegación interna */
+.boton-enlace, .boton-volver {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #1a4314;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.boton-enlace:hover, .boton-volver:hover {
+    background-color: #6e0e21;
+    color: white;
+}
+
+/* Estilos para los vídeos */
+.video-fluido {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-top: 1rem;
+    background-color: #000;
+}
+
+/* Estilos para la lista de PDFs en publicaciones.html */
+.lista-documentos {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.lista-documentos li {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    background: #fcfbf9;
+    border-left: 4px solid #1a4314;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.lista-documentos a {
+    color: #1a4314;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.lista-documentos a:hover {
+    color: #6e0e21;
+    text-decoration: underline;
+}
+
+/* Visor de imágenes (Modal) */
+.modal-visor {
+    display: none; 
+    position: fixed; 
+    z-index: 9999; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.85); 
+}
+
+.modal-contenido {
+    margin: auto;
+    display: block;
+    width: 50vw;          /* Fuerza a ocupar el 90% del ancho de la pantalla */
+    height: 50vh;         /* Fuerza a ocupar el 90% del alto de la pantalla */
+    object-fit: contain;  /* Escala la foto al máximo posible sin deformarla ni cortarla */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-modal:hover {
+    color: #d1b8bd;
+}
+
+.img-galeria {
+    cursor: pointer; 
+}
+
+/* Cuadrícula específica para revistas (tamaño base un poco mayor) */
+.galeria-grid-revistas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); 
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Formato rectangular para simular un folio A4 (1 / 1.41) */
+.img-revista {
+    width: 100%;
+    aspect-ratio: 1 / 1.41; 
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.img-revista:hover {
+    transform: scale(1.05);
+}
+
+/* Contenedor para las imágenes de las semanas culturales */
+.imagenes-semanas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+/* Estilo para que todas tengan el mismo tamaño exacto */
+.img-semana {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Proporción vertical tipo cartel. Si tus fotos son horizontales, cámbialo a 4 / 3 */
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Cuadrícula histórica para carteles de Semanas Culturales */
+.grid-carteles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.tarjeta-cartel {
+    text-align: center;
+    background: #fcfbf9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid #1a4314;
+}
+
+.img-cartel {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Proporción estándar de cartel vertical */
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.img-cartel:hover {
+    transform: scale(1.03);
+}
+
+.anio-cartel {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #6e0e21;
+    font-size: 1.2rem;
+    font-family: 'Georgia', serif;
+}
+
+/* Tablón de Anuncios (Estilo integrado y centrado) */
+#anuncios {
+    max-width: 1000px; 
+    margin: 2rem auto; 
+}
+
+.contenedor-avisos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.aviso-sencillo {
+    padding: 1rem 1.5rem;
+    background-color: #fcfbf9;
+    border-left: 4px solid #1a4314;
+    border-radius: 4px;
+}
+
+.aviso-sencillo p {
+    margin: 0;
+    color: #333;
+}
+
+/* Botón flotante Volver Arriba */
+#btn-volver-arriba {
+    display: none; /* Permanece oculto al cargar la página */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    background-color: #6e0e21; 
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#btn-volver-arriba:hover {
+    background-color: #6e0e21; 
+    transform: scale(1.1);
+}
+
+/* Contenedor del Mapa de Ubicación */
+.contenedor-mapa {
+    max-width: 500px; /* Tamaño reducido del mapa */
+    margin: 1.5rem auto; /* Lo centra en el contenedor */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 2px solid #e0d8d5;
+}
+
+.contenedor-mapa iframe {
+    display: block;
+    width: 100%;
+    height: 300px; /* Fija la altura a una proporción manejable */
+}
+
+/* Centrar los iconos SVG */
+.redes-iconos {
+    display: flex;
+    justify-content: center; /* Esto alinea los 4 iconos al centro */
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}

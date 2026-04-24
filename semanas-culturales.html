@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semanas Culturales - Asociación cultural La Mediana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="imagen.jpg" alt="Logo Asociación cultural La Mediana" class="logo">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#nosotros">Quiénes somos</a></li>
+                <li><a href="index.html#actividades">Actividades</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="seccion-inicio">
+            <h1>Semanas Culturales</h1>
+            <p>La Asociación cultural La Mediana puso en pie en el año 1985 la celebración de las Semanas Culturales, durante los meses de agosto, cuando una gran parte de los hijos del pueblo regresan al mismo para pasar sus vacaciones. Sus impulsores fueron tres amigos y vecinos del pueblo: José Antonio Llamas, Fulgencio Fernández y Ángel Fierro, más la complicidad de algunos jóvenes como Toño Manilla y el malogrado Fiti. El talante de estos encuentros con la cultura intentó en todo momento tener como sello un ejercicio de seriedad y calidad. Se procuró dar cabida a todo tipo de manifestación artística, literaria, musical y plástica, siendo la entrada a los actos totalmente gratuita. Estas manifestaciones se celebraron en el Casino y fueron pioneras en la provincia de León, donde aún no existían.</p>
+            
+            <div class="grid-carteles">
+                <div class="tarjeta-cartel">
+                    <img src="semana1.jpg" alt="Cartel Semana Cultural 1985" class="img-cartel">
+                    <p class="anio-cartel">Edición 2024</p>
+                </div>
+
+                <div class="tarjeta-cartel">
+                    <img src="semana2.jpg" alt="Cartel Semana Cultural 1986" class="img-cartel">
+                    <p class="anio-cartel">Edición 2016</p>
+                </div>
+
+                <div class="tarjeta-cartel">
+                    <img src="semana3.jpg" alt="Cartel Semana Cultural 1987" class="img-cartel">
+                    <p class="anio-cartel">Edición 2017</p>
+                </div>
+
+                <div class="tarjeta-cartel">
+                    <img src="semana4.jpg" alt="Cartel Semana Cultural 1988" class="img-cartel">
+                    <p class="anio-cartel">Edición 1988</p>
+                </div>
+                
+                <div class="tarjeta-cartel">
+                    <img src="semana5.jpg" alt="Cartel Semana Cultural 1989" class="img-cartel">
+                    <p class="anio-cartel">Edición 1989</p>
+                </div>
+
+                <div class="tarjeta-cartel">
+                    <img src="semana6.jpg" alt="Cartel Semana Cultural 1990" class="img-cartel">
+                    <p class="anio-cartel">Edición 1990</p>
+                </div>
+            </div>
+            
+            <br>
+            <a href="index.html" class="boton-volver">Volver a la página principal</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Asociación cultural La Mediana</p>
+    </footer>
+
+    <div id="visor-imagenes" class="modal-visor">
+        <span class="cerrar-modal">&times;</span>
+        <img class="modal-contenido" id="imagen-ampliada">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const visor = document.getElementById("visor-imagenes");
+            const imgAmpliada = document.getElementById("imagen-ampliada");
+            const fotos = document.querySelectorAll(".img-cartel");
+            const botonCerrar = document.querySelector(".cerrar-modal");
+
+            fotos.forEach(foto => {
+                foto.addEventListener("click", function() {
+                    visor.style.display = "block";
+                    imgAmpliada.src = this.src;
+                });
+            });
+
+            botonCerrar.addEventListener("click", () => {
+                visor.style.display = "none";
+            });
+
+            visor.addEventListener("click", (e) => {
+                if (e.target === visor) {
+                    visor.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
